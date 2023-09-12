@@ -14,7 +14,7 @@ const Landing = () => {
 
       <section className="mt-14">
         <Link
-          to=""
+          to="signup"
           className="mx-auto block w-10/12 rounded-lg bg-[#FFBD5A] px-4 py-2  text-center font-semibold outline-none"
         >
           Get Started
@@ -22,7 +22,7 @@ const Landing = () => {
 
         <p className="mt-10 text-center">
           Already have an account?{" "}
-          <Link to="" className="text-[#FFBD5A] underline">
+          <Link to="signin" className="text-[#FFBD5A] underline">
             Log In
           </Link>
         </p>

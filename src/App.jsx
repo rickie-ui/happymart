@@ -8,6 +8,8 @@ import Search from "./pages/Search";
 import Favorite from "./pages/Favorite";
 import Checkout from "./pages/Checkout";
 import Profile from "./pages/Profile";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
 const App = () => {
   let windowWidth = WindowWidth();
   return (
@@ -16,6 +18,8 @@ const App = () => {
         <div className="min-h-screen bg-[#E7ECF2] antialiased">
           <Routes>
             <Route path="/" element={<Landing />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/signin" element={<SignIn />} />
             <Route element={<Layout />}>
               <Route path="home" element={<Home />} />
               <Route path="search" element={<Search />} />
