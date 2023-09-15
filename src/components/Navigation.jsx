@@ -1,24 +1,24 @@
 import { GoHome, GoSearch, GoHeart, GoPerson } from "react-icons/go";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { NavLink } from "react-router-dom";
+import Navbar from "./Navbar/Navbar";
 const Navigation = () => {
   return (
     <nav className="fixed bottom-0 z-50  flex h-14 w-full  items-center justify-evenly gap-2  rounded-t-3xl bg-white text-2xl  shadow-lg">
-      <NavLink to="home" className="focus:text-[#FFBD5A]">
+      <Navbar to="/home">
         <GoHome />
-      </NavLink>
-      <NavLink to="search" className="focus:text-[#FFBD5A]">
+      </Navbar>
+      <Navbar to="/search">
         <GoSearch />
-      </NavLink>
-      <NavLink to="favorite" className="focus:text-[#FFBD5A]">
+      </Navbar>
+      <Navbar to="/favorite">
         <GoHeart />
-      </NavLink>
-      <NavLink to="checkout" className="focus:text-[#FFBD5A]">
+      </Navbar>
+      <Navbar to="/checkout">
         <AiOutlineShoppingCart />
-      </NavLink>
-      <NavLink to="profile" className="focus:text-[#FFBD5A]">
+      </Navbar>
+      <Navbar to="/profile">
         <GoPerson />
-      </NavLink>
+      </Navbar>
     </nav>
   );
 };

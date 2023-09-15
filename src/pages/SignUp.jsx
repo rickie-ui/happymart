@@ -1,50 +1,49 @@
 import { BsArrowLeft } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
-import { useFormik } from "formik";
+import { Link, useNavigate } from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 const SignUp = () => {
-  const formik = useFormik({
-    initialValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-    },
-    onSubmit: (values) => {
-      console.log(values);
-    },
+  const initialValues = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  };
 
-    validate: (values) => {
-      let errors = {};
-      // errors.firstName, errors.lastName, errors.email, errors.password
-      if (!values.firstName) {
-        errors.firstName = "First name is required!";
-      }
-      if (!values.lastName) {
-        errors.lastName = "Last name is required!";
-      }
-      if (!values.email) {
-        errors.email = "Email  is required!";
-      } else if (
-        !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(values.email)
-      ) {
-        errors.email = "You have entered invalid email address";
-      }
-      if (!values.password) {
-        errors.password = "Password  is required!";
-      } else if (values.password.length < 6) {
-        errors.password = "Minimum of 6 characters are required!";
-      }
-      return errors;
-    },
+  //  validation
+  const validationSchema = Yup.object({
+    firstName: Yup.string().required("first name is required"),
+    lastName: Yup.string().required("last name is required"),
+    email: Yup.string()
+      .email("enter a valid email address")
+      .required("email is required"),
+    password: Yup.string()
+      .min(6, "minimum of 6 characters is required")
+      .required("password is required"),
   });
 
-  console.log(formik.errors);
+  const navigate = useNavigate();
+  // handle navigation
+  const handleNavigate = () => {
+    // Use the navigate function to go to a specific page
+    // Replace "/target-page" with the desired route path
+    navigate(-1);
+  };
+
+  const onSubmit = (values) => {
+    // Save the form data to localStorage
+    localStorage.setItem("formData", JSON.stringify(values));
+
+    navigate("/home");
+
+    // console.log(values);
+  };
   return (
     <div className="mx-auto w-11/12 pt-4 antialiased">
-      <div>
+      <button onClick={handleNavigate}>
         <BsArrowLeft />
-      </div>
+      </button>
 
       <h3 className="my-4 text-2xl font-semibold">Sign Up</h3>
 
@@ -57,92 +56,87 @@ const SignUp = () => {
       </Link>
 
       <p className="my-6 font-medium opacity-50">Or sign up with email</p>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={onSubmit}
+        validationSchema={validationSchema}
+      >
+        {({ isSubmitting }) => (
+          <Form>
+            <label htmlFor="firstName" className="my-1 block font-semibold">
+              First Name
+            </label>
+            <Field
+              type="text"
+              name="firstName"
+              placeholder="Enter first name"
+              className="w-full rounded-md px-4 py-2"
+            />
+            <ErrorMessage
+              name="firstName"
+              component="p"
+              className="my-1 text-sm font-medium  text-red-500 first-letter:capitalize"
+            />
 
-      <form onSubmit={formik.handleSubmit}>
-        <label htmlFor="firstName" className="my-1 block font-semibold">
-          First Name
-        </label>
-        <input
-          type="text"
-          name="firstName"
-          placeholder="Enter first name"
-          value={formik.values.firstName}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          className="w-full rounded-md px-4 py-2"
-        />
+            <label htmlFor="lastName" className="my-1 block font-semibold">
+              Last Name
+            </label>
+            <Field
+              type="text"
+              name="lastName"
+              placeholder="Enter last name"
+              className="w-full rounded-md px-4 py-2"
+            />
+            <ErrorMessage
+              name="lastName"
+              component="p"
+              className="my-1 text-sm font-medium  text-red-500 first-letter:capitalize"
+            />
+            <label htmlFor="email" className="my-1 block font-semibold">
+              Email
+            </label>
+            <Field
+              type="text"
+              name="email"
+              placeholder="Enter email address"
+              className="w-full rounded-md px-4 py-2"
+            />
+            <ErrorMessage
+              name="email"
+              component="p"
+              className="my-1 text-sm font-medium  text-red-500 first-letter:capitalize"
+            />
+            <label htmlFor="password" className="my-1 block font-semibold">
+              Password
+            </label>
+            <Field
+              type="text"
+              name="password"
+              placeholder="Enter password"
+              className="w-full rounded-md px-4 py-2"
+            />
+            <ErrorMessage
+              name="password"
+              component="p"
+              className="my-1 text-sm font-medium  text-red-500 first-letter:capitalize"
+            />
 
-        {formik.touched.firstName && formik.errors.firstName ? (
-          <p className="my-1 text-sm font-medium text-red-400">
-            {formik.errors.firstName}
-          </p>
-        ) : null}
-        <label htmlFor="lastName" className="my-1 block font-semibold">
-          Last Name
-        </label>
-        <input
-          type="text"
-          name="lastName"
-          value={formik.values.lastName}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          placeholder="Enter last name"
-          className="w-full rounded-md px-4 py-2"
-        />
-        {formik.touched.lastName && formik.errors.lastName ? (
-          <p className="my-1 text-sm font-medium text-red-400">
-            {formik.errors.lastName}
-          </p>
-        ) : null}
-        <label htmlFor="email" className="my-1 block font-semibold">
-          Email Address
-        </label>
-        <input
-          type="text"
-          name="email"
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          placeholder="Enter email address"
-          className="w-full rounded-md px-4 py-2"
-        />
-        {formik.touched.email && formik.errors.email ? (
-          <p className="my-1 text-sm font-medium text-red-400">
-            {formik.errors.email}
-          </p>
-        ) : null}
-        <label htmlFor="password" className="my-1 block font-semibold">
-          Password
-        </label>
-        <input
-          type="text"
-          name="password"
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          placeholder="Enter password"
-          className="w-full rounded-md px-4 py-2"
-        />
-        {formik.touched.password && formik.errors.password ? (
-          <p className="my-1 text-sm font-medium text-red-400">
-            {formik.errors.password}
-          </p>
-        ) : null}
+            <button
+              type="submit"
+              className="mb-4 mt-8 w-full rounded-md bg-[#FFBD5A] px-4 py-2 font-semibold"
+            >
+              {isSubmitting ? "Processing..." : "Sign Up"}
+            </button>
 
-        <button
-          type="submit"
-          className="mb-4 mt-8 w-full rounded-md bg-[#FFBD5A] px-4 py-2 font-semibold"
-        >
-          Sign Up
-        </button>
-
-        <p className="font-semibold opacity-50">
-          Already have an account?{" "}
-          <Link to="/signin" className="underline">
-            Log In
-          </Link>
-        </p>
-      </form>
+            <p className="font-semibold opacity-50">
+              Already have an account?{" "}
+              <Link to="/signin" className="underline">
+                Log In
+              </Link>
+            </p>
+          </Form>
+        )}
+      </Formik>
     </div>
   );
 };
