@@ -12,7 +12,7 @@ const CheckoutCard = ({ name, price, imageUrl, quantity, id }) => {
         className="h-20 w-20 rounded-lg object-contain object-center"
       />
       <div>
-        <h3 className="text-medium whitespace-nowrap font-semibold">{name}</h3>
+        <h3 className="font-semibold">{name}</h3>
         <p>In stock</p>
         <div className="flex items-center justify-between gap-8">
           <p className="font-semibold">{`$${price.toFixed(2)}`}</p>
