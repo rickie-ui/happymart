@@ -22,7 +22,6 @@ const cartReducer = (state, action) => {
         ...state,
         total: payload.total,
       };
-
     default:
       return state;
     // throw new error(No case for type ${type} found in cart reducer)

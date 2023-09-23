@@ -14,7 +14,7 @@ import {
 
 import { BiSolidEditAlt } from "react-icons/bi";
 import Avatar from "../assets/profile.jpg";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Profile = () => {
   return (
@@ -41,19 +41,24 @@ const Profile = () => {
             <BiSolidEditAlt />
           </Link>
         </div>
-        <div className="mb-4 flex items-center justify-between font-semibold">
+        <NavLink
+          to="/orders"
+          className="mb-4 flex items-center justify-between font-semibold"
+        >
           <div className="flex items-center gap-2">
             <div className="rounded-full bg-[#E7ECF2] p-2">
               <AiOutlineShoppingCart />
             </div>
-            <p>My Order</p>
+            <p>My Orders</p>
           </div>
-
           <div>
             <IoIosArrowForward />
           </div>
-        </div>{" "}
-        <div className="mb-4 flex items-center justify-between font-semibold">
+        </NavLink>
+        <NavLink
+          to=""
+          className="mb-4 flex items-center justify-between font-semibold"
+        >
           <div className="flex items-center gap-2">
             <div className="rounded-full bg-[#E7ECF2] p-2">
               <IoMdNotificationsOutline />
@@ -64,8 +69,11 @@ const Profile = () => {
           <div>
             <IoIosArrowForward />
           </div>
-        </div>{" "}
-        <div className="mb-4 flex items-center justify-between font-semibold">
+        </NavLink>
+        <NavLink
+          to="/vouchers"
+          className="mb-4 flex items-center justify-between font-semibold"
+        >
           <div className="flex items-center gap-2">
             <div className="rounded-full bg-[#E7ECF2] p-2">
               <AiOutlineGift />
@@ -76,8 +84,11 @@ const Profile = () => {
           <div>
             <IoIosArrowForward />
           </div>
-        </div>
-        <div className="mb-4 flex items-center justify-between font-semibold">
+        </NavLink>
+        <NavLink
+          to=""
+          className="mb-4 flex items-center justify-between font-semibold"
+        >
           <div className="flex items-center gap-2">
             <div className="rounded-full bg-[#E7ECF2] p-2">
               <FaRegAddressCard />
@@ -88,8 +99,11 @@ const Profile = () => {
           <div>
             <IoIosArrowForward />
           </div>
-        </div>
-        <div className="mb-4 flex items-center justify-between font-semibold">
+        </NavLink>
+        <NavLink
+          to="/payments"
+          className="mb-4 flex items-center justify-between font-semibold"
+        >
           <div className="flex items-center gap-2">
             <div className="rounded-full bg-[#E7ECF2] p-2">
               <MdPayment />
@@ -100,8 +114,11 @@ const Profile = () => {
           <div>
             <IoIosArrowForward />
           </div>
-        </div>
-        <div className="mb-4 flex items-center justify-between font-semibold">
+        </NavLink>
+        <NavLink
+          to=""
+          className="mb-4 flex items-center justify-between font-semibold"
+        >
           <div className="flex items-center gap-2">
             <div className="rounded-full bg-[#E7ECF2] p-2">
               <AiOutlineUsergroupAdd />
@@ -112,8 +129,11 @@ const Profile = () => {
           <div>
             <IoIosArrowForward />
           </div>
-        </div>
-        <div className="mb-4 flex items-center justify-between font-semibold">
+        </NavLink>
+        <NavLink
+          to=""
+          className="mb-4 flex items-center justify-between font-semibold"
+        >
           <div className="flex items-center gap-2">
             <div className="rounded-full bg-[#E7ECF2] p-2">
               <LiaUserSolid />
@@ -124,7 +144,7 @@ const Profile = () => {
           <div>
             <IoIosArrowForward />
           </div>
-        </div>
+        </NavLink>
       </section>
     </>
   );

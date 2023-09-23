@@ -1,4 +1,5 @@
 import { GoStarFill } from "react-icons/go";
+import { BsFillBookmarkFill } from "react-icons/bs";
 import useCart from "../context/CartContext";
 import { useEffect, useState } from "react";
 
@@ -27,7 +28,10 @@ const Product = ({ name, price, rating, imageUrl, id }) => {
     }
   };
   return (
-    <div className="h-auto rounded-2xl  bg-white p-2" key={id}>
+    <div className="relative h-auto rounded-2xl bg-white p-2" key={id}>
+      <div className="absolute right-5 top-3 cursor-pointer text-gray-500">
+        <BsFillBookmarkFill />
+      </div>
       <img
         src={imageUrl}
         alt="product"

@@ -4,6 +4,7 @@ export const shopData = [
     name: "Circular Textured Pattern Cape Jacket",
     rating: 2.8,
     price: 40,
+    stock: 14,
     imageUrl:
       "https://tiqueabouclothing.com/wp-content/uploads/2020/01/Circular-Textured-Pattern-Cape-Jacket.jpg",
   },
@@ -11,6 +12,7 @@ export const shopData = [
     id: 2,
     name: "Printed Silky Oversize Top",
     price: 45,
+    stock: 14,
     rating: 4.0,
     imageUrl:
       "https://tiqueabouclothing.com/wp-content/uploads/2019/02/Printed-Silky-Oversize-Top-1.jpg",
@@ -20,6 +22,7 @@ export const shopData = [
     name: "Ruffle Lace Overlay Blouse",
     rating: 3.5,
     price: 47,
+    stock: 14,
     imageUrl:
       "https://tiqueabouclothing.com/wp-content/uploads/2019/02/Ruffle-Lace-Overlay-Blouse.jpg",
   },
@@ -28,6 +31,7 @@ export const shopData = [
     name: "Speckled Wide Sleeve Cropped Jacket",
     rating: 3.3,
     price: 50,
+    stock: 14,
     imageUrl:
       "https://tiqueabouclothing.com/wp-content/uploads/2019/02/Speckled-Wide-Sleeve-Cropped-Jacket-1.jpg",
   },
@@ -37,6 +41,7 @@ export const shopData = [
     name: "Wide Leg Tie UP Waist Trousers",
     rating: 3.8,
     price: 45,
+    stock: 14,
     imageUrl:
       "https://tiqueabouclothing.com/wp-content/uploads/2020/10/WIDE-LEG-TIE-UP-WAIST-TROUSERS.jpg",
   },
@@ -46,6 +51,7 @@ export const shopData = [
     name: "Belted Wide Leg Yellow Trousers",
     rating: 4.2,
     price: 53,
+    stock: 14,
     imageUrl:
       "https://tiqueabouclothing.com/wp-content/uploads/2020/10/Belted-Wide-Leg-Yellow-Trousers.jpg",
   },
@@ -54,6 +60,7 @@ export const shopData = [
     name: "Off Shoulder Midi Peplum Dress",
     rating: 4.6,
     price: 24,
+    stock: 14,
     imageUrl:
       "https://tiqueabouclothing.com/wp-content/uploads/2020/01/Off-Shoulder-Midi-Peplum-Dress.jpg",
   },
@@ -62,6 +69,7 @@ export const shopData = [
     name: "Mint ruffle Print Prairie Dress",
     rating: 4.1,
     price: 35,
+    stock: 14,
     imageUrl:
       "https://tiqueabouclothing.com/wp-content/uploads/2020/01/ruffle-print-prairie-dress-mint-multi-131731-4.jpg",
   },
@@ -70,6 +78,7 @@ export const shopData = [
     name: "Long Line Shirt Dress",
     rating: 4.4,
     price: 38,
+    stock: 14,
     imageUrl:
       "https://tiqueabouclothing.com/wp-content/uploads/2019/06/Long-Line-Shirt-Dress.jpg",
   },
@@ -78,6 +87,7 @@ export const shopData = [
     name: "Tribal Aztec Print Maxi Dress",
     rating: 4.3,
     price: 28,
+    stock: 14,
     imageUrl:
       "https://tiqueabouclothing.com/wp-content/uploads/2019/09/Tribal-Aztec-Print-Maxi-Dress.jpg",
   },

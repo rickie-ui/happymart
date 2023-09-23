@@ -7,19 +7,6 @@ export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
   function addToCart(product) {
-    // const updatedCart = [...state.products, product];
-    // const updatedCart = state.products.concat(product);
-    // updateCart(updatedCart);
-
-    // console.log(updatedCart);
-
-    // dispatch({
-    //   type: "ADD_TO_CART",
-    //   payload: {
-    //     product: updatedCart,
-    //   },
-    // });
-
     const updatedCart = [...state.products];
     const productIndex = updatedCart.findIndex((p) => p.id === product.id);
 
@@ -43,10 +30,6 @@ export const CartProvider = ({ children }) => {
   }
 
   const removeFromCart = (product) => {
-    // const updatedCart = state.products.filter(
-    //   (currentProduct) => currentProduct.id !== product.id,
-    // );
-    // updateCart(updatedCart);
     const updatedCart = [...state.products];
     const productIndex = updatedCart.findIndex((p) => p.id === product.id);
 

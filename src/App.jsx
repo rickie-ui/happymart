@@ -10,6 +10,9 @@ import Checkout from "./pages/Checkout";
 import Profile from "./pages/Profile";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
+import Orders from "./pages/Orders";
+import Voucher from "./pages/Voucher";
+import Payment from "./pages/Payment";
 const App = () => {
   let windowWidth = WindowWidth();
   return (
@@ -26,6 +29,9 @@ const App = () => {
               <Route path="favorite" element={<Favorite />} />
               <Route path="checkout" element={<Checkout />} />
               <Route path="profile" element={<Profile />} />
+              <Route path="orders" element={<Orders />} />
+              <Route path="vouchers" element={<Voucher />} />
+              <Route path="payments" element={<Payment />} />
             </Route>
           </Routes>
         </div>
