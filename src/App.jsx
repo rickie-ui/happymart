@@ -13,6 +13,7 @@ import SignIn from "./pages/SignIn";
 import Orders from "./pages/Orders";
 import Voucher from "./pages/Voucher";
 import Payment from "./pages/Payment";
+import NotFound from "./pages/NotFound";
 const App = () => {
   let windowWidth = WindowWidth();
   return (
@@ -33,6 +34,8 @@ const App = () => {
               <Route path="vouchers" element={<Voucher />} />
               <Route path="payments" element={<Payment />} />
             </Route>
+
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       ) : (

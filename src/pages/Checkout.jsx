@@ -6,6 +6,8 @@ import CheckoutCard from "../components/CheckoutCard";
 const Checkout = () => {
   const { products, total } = useCart();
 
+  const delivery = (total * 5) / 100;
+
   return (
     <>
       <section className="mx-auto w-11/12 pt-5">
@@ -34,7 +36,7 @@ const Checkout = () => {
 
         <div className="my-2 flex justify-between">
           <p>Delivery & handling</p>
-          <p>$0.00</p>
+          <p>{`$${delivery.toFixed(2)}`}</p>
         </div>
 
         <div className="my-4 border-2 border-dotted"></div>

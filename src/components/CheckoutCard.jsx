@@ -14,9 +14,9 @@ const CheckoutCard = ({ name, price, imageUrl, quantity, id }) => {
       <div>
         <h3 className="font-semibold">{name}</h3>
         <p>In stock</p>
-        <div className="flex items-center justify-between gap-8">
+        <div className="grid grid-cols-2 gap-8">
           <p className="font-semibold">{`$${price.toFixed(2)}`}</p>
-          <div className="my-2 flex  gap-1">
+          <div className="my-2 flex gap-1">
             <button
               className="whitespace-nowrap rounded-md bg-[#FFBD5A] px-2 py-1 text-sm font-semibold"
               onClick={() => removeFromCart({ id })}
