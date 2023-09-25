@@ -4,7 +4,7 @@ import Offer3 from "../assets/offer3.avif";
 
 const Promo = () => {
   return (
-    <div className="relative hidden">
+    <div className="relative">
       <div className="custom-scrollbar mx-auto flex w-11/12 snap-x items-center gap-2 overflow-x-auto scroll-smooth rounded-2xl shadow-xl	">
         <div
           className="h-28 w-72 flex-shrink-0 snap-center  rounded-2xl "

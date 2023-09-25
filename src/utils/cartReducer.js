@@ -1,6 +1,7 @@
 export const initialState = {
   total: 0,
   products: [],
+  favorites: [],
 };
 
 const cartReducer = (state, action) => {
@@ -16,6 +17,16 @@ const cartReducer = (state, action) => {
       return {
         ...state,
         products: payload.product,
+      };
+    case "ADD_TO_FAVORITE":
+      return {
+        ...state,
+        favorites: payload.favorite,
+      };
+    case "REMOVE_FROM_FAVORITE":
+      return {
+        ...state,
+        favorites: payload.favorite,
       };
     case "UPDATE_CART":
       return {

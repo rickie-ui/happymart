@@ -1,5 +1,4 @@
 import {
-  IoIosArrowBack,
   IoIosArrowForward,
   IoMdNotificationsOutline,
 } from "react-icons/io";
@@ -11,6 +10,7 @@ import {
   AiOutlineGift,
   AiOutlineUsergroupAdd,
 } from "react-icons/ai";
+import BackButton from "../components/Button/BackButton";
 
 import { BiSolidEditAlt } from "react-icons/bi";
 import Avatar from "../assets/profile.jpg";
@@ -21,7 +21,7 @@ const Profile = () => {
     <>
       <section className="mx-auto w-11/12 pt-5">
         <div className="flex items-center justify-between text-xl font-medium">
-          <IoIosArrowBack />
+          <BackButton />
           <h2 className="opacity-60">Profile</h2>
           <p></p>
         </div>

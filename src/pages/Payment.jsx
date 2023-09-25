@@ -1,4 +1,4 @@
-import { IoIosArrowBack } from "react-icons/io";
+import BackButton from "../components/Button/BackButton";
 import Card from "../assets/card1.jpg";
 import { Link } from "react-router-dom";
 
@@ -6,7 +6,7 @@ const Payment = () => {
   return (
     <section className="mx-auto w-11/12  pt-5">
       <div className="flex items-center justify-between text-xl font-medium">
-        <IoIosArrowBack />
+        <BackButton />
         <h2 className="opacity-60">Add payment</h2>
         <p></p>
       </div>

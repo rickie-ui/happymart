@@ -14,7 +14,7 @@ const CheckoutCard = ({ name, price, imageUrl, quantity, id }) => {
       <div>
         <h3 className="font-semibold">{name}</h3>
         <p>In stock</p>
-        <div className="grid grid-cols-2 gap-8">
+        <div className="flex flex-nowrap  items-center justify-between">
           <p className="font-semibold">{`$${price.toFixed(2)}`}</p>
           <div className="my-2 flex gap-1">
             <button
@@ -23,7 +23,9 @@ const CheckoutCard = ({ name, price, imageUrl, quantity, id }) => {
             >
               <IoIosRemove />
             </button>
-            <p className="mx-2">{quantity}</p>
+            <p className="flex h-7 w-10 flex-nowrap items-center justify-center">
+              {quantity}
+            </p>
             <button
               className="whitespace-nowrap rounded-md bg-[#FFBD5A] px-2 py-1 text-sm font-semibold"
               onClick={() => addToCart({ id })}

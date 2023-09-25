@@ -1,12 +1,20 @@
 import { GoStarFill } from "react-icons/go";
-import { BsFillBookmarkFill } from "react-icons/bs";
+import { BsFillBookmarkFill, BsFillBookmarkDashFill } from "react-icons/bs";
 import useCart from "../context/CartContext";
 import { useEffect, useState } from "react";
 
 const Product = ({ name, price, rating, imageUrl, id }) => {
-  const { products, addToCart, removeFromCart } = useCart();
+  const {
+    products,
+    addToCart,
+    removeFromCart,
+    favorites,
+    addToFavorite,
+    removeFromFavorite,
+  } = useCart();
 
   const [isInCart, setIsInCart] = useState(false);
+  const [isInFavorites, setIsInFavorites] = useState(false);
 
   useEffect(() => {
     const productIsInCart = products.find((product) => product.id === id);
@@ -16,7 +24,17 @@ const Product = ({ name, price, rating, imageUrl, id }) => {
     } else {
       setIsInCart(false);
     }
-  }, [products, name]);
+
+    // Check if the product is in favorites
+    const productIsInFavorites = favorites.find(
+      (favorite) => favorite.id === id,
+    );
+    if (productIsInFavorites) {
+      setIsInFavorites(true);
+    } else {
+      setIsInFavorites(false);
+    }
+  }, [products, favorites, id]);
 
   const handleClick = () => {
     const product = { name, price, rating, imageUrl, id };
@@ -27,11 +45,25 @@ const Product = ({ name, price, rating, imageUrl, id }) => {
       addToCart(product);
     }
   };
+
+  const handleFavoritesClick = () => {
+    const product = { name, price, rating, imageUrl, id };
+
+    if (isInFavorites) {
+      removeFromFavorite(product);
+    } else {
+      addToFavorite(product);
+    }
+  };
+
   return (
     <div className="relative h-auto rounded-2xl bg-white p-2" key={id}>
-      <div className="absolute right-5 top-3 cursor-pointer text-gray-500">
-        <BsFillBookmarkFill />
-      </div>
+      <button
+        className="absolute right-6 top-3 cursor-pointer text-gray-500"
+        onClick={handleFavoritesClick}
+      >
+        {isInFavorites ? <BsFillBookmarkDashFill /> : <BsFillBookmarkFill />}
+      </button>
       <img
         src={imageUrl}
         alt="product"

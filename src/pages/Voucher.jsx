@@ -1,12 +1,12 @@
-import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import Accordion from "../components/Accordion/Accordion";
+import BackButton from "../components/Button/BackButton";
 
 const Voucher = () => {
   return (
     <section className="mx-auto w-11/12 pb-10 pt-5">
       <div className="flex items-center justify-between text-xl font-medium">
-        <IoIosArrowBack />
+        <BackButton />
         <h2 className="opacity-60">Gift Cards & Vouchers</h2>
         <p></p>
       </div>

@@ -41,8 +41,6 @@ export const CartProvider = ({ children }) => {
         // If its quantity is 1 or less, remove it from the cart
         updatedCart.splice(productIndex, 1);
       }
-    } else {
-      // If the product is not in the cart, do nothing
     }
 
     updateCart(updatedCart);
@@ -53,6 +51,38 @@ export const CartProvider = ({ children }) => {
         product: updatedCart,
       },
     });
+  };
+
+  const addToFavorite = (favorite) => {
+    const productIndex = state.favorites.findIndex((p) => p.id === favorite.id);
+
+    if (productIndex === -1) {
+      let updatedCart = [...state.favorites, favorite];
+      dispatch({
+        type: "ADD_TO_FAVORITE",
+        payload: {
+          favorite: updatedCart,
+        },
+      });
+    }
+  };
+
+  const removeFromFavorite = (favorite) => {
+    const productIndex = state.favorites.findIndex((p) => p.id === favorite.id);
+    if (productIndex !== -1) {
+      const updatedCart = [
+        ...state.favorites.slice(0, productIndex),
+        ...state.favorites.slice(productIndex + 1),
+      ];
+
+      console.log(updatedCart);
+      dispatch({
+        type: "REMOVE_FROM_FAVORITE",
+        payload: {
+          favorite: updatedCart,
+        },
+      });
+    }
   };
 
   const updateCart = (product) => {
@@ -73,8 +103,11 @@ export const CartProvider = ({ children }) => {
   const value = {
     total: state.total,
     products: state.products,
+    favorites: state.favorites,
     addToCart,
     removeFromCart,
+    addToFavorite,
+    removeFromFavorite,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

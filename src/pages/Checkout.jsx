@@ -1,10 +1,18 @@
-import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import useCart from "../context/CartContext";
 import CheckoutCard from "../components/CheckoutCard";
+import { useState, useLayoutEffect } from "react";
+import BackButton from "../components/Button/BackButton";
 
 const Checkout = () => {
   const { products, total } = useCart();
+  const [isEmpty, setIsEmpty] = useState(false);
+
+  useLayoutEffect(() => {
+    if (products.length === 0) {
+      setIsEmpty(true);
+    }
+  }, [products, isEmpty]);
 
   const delivery = (total * 5) / 100;
 
@@ -12,7 +20,7 @@ const Checkout = () => {
     <>
       <section className="mx-auto w-11/12 pt-5">
         <div className="flex items-center justify-between text-xl font-medium">
-          <IoIosArrowBack />
+          <BackButton />
           <h2 className="opacity-60">My Cart</h2>
           <p></p>
         </div>
@@ -48,7 +56,9 @@ const Checkout = () => {
 
         <Link
           to=""
-          className="mb-14 mt-5 block rounded-lg bg-[#FFBD5A] px-4 py-2  text-center font-semibold outline-none"
+          className={`mb-14 mt-5 block cursor-pointer rounded-lg bg-[#FFBD5A] px-4  py-2 text-center font-semibold outline-none ${
+            isEmpty ? "cursor-not-allowed bg-[#adb9c7] opacity-40" : ""
+          }`}
         >
           Checkout
         </Link>
