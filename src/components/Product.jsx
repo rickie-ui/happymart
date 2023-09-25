@@ -2,6 +2,7 @@ import { GoStarFill } from "react-icons/go";
 import { BsFillBookmarkFill, BsFillBookmarkDashFill } from "react-icons/bs";
 import useCart from "../context/CartContext";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Product = ({ name, price, rating, imageUrl, id }) => {
   const {
@@ -69,7 +70,9 @@ const Product = ({ name, price, rating, imageUrl, id }) => {
         alt="product"
         className="mx-auto h-32 w-10/12 object-cover object-top"
       />
-      <p className="my-2 font-medium">{name}</p>
+      <Link to={`/details/${id}`} className="my-2 font-medium focus:underline">
+        {name}
+      </Link>
       <div className="my-2 flex items-center text-xs font-semibold text-[#FFBD5A]">
         <GoStarFill /> <p>{rating || "1.0"}</p>
       </div>

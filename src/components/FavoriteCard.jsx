@@ -1,7 +1,7 @@
 import useCart from "../context/CartContext";
 import { IoIosTrash } from "react-icons/io";
 
-const FavoriteCard = ({ name, price, imageUrl, id, stock }) => {
+const FavoriteCard = ({ name, price, imageUrl, id }) => {
   const { removeFromFavorite, addToCart } = useCart();
 
   return (
