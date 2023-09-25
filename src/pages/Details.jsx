@@ -40,7 +40,7 @@ const Details = () => {
         <section className="">
           <div className="relative  mx-auto my-8 h-36 w-10/12">
             <div className="perspective-1000 group h-full w-full ">
-              <div className="group-hover:rotate-x-6 h-full w-full origin-center transform transform-gpu transition-transform duration-300 group-hover:scale-105">
+              <div className="group-hover:rotate-x-6 h-full w-full origin-center transform-gpu transition-transform duration-300 group-hover:scale-105">
                 <img
                   src={product.imageUrl}
                   alt=""
